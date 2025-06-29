@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part Warranty Certificate - Luxury Auto Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background: white;
+        }
+
+        .warranty-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            border: 2px solid #c4a484;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background: white;
+        }
+
+        .warranty-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #c4a484;
+        }
+
+        .warranty-header h1 {
+            color: #333;
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .warranty-header h2 {
+            color: #c4a484;
+            margin: 10px 0;
+            font-size: 24px;
+        }
+
+        .warranty-number {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .warranty-content {
+            margin-bottom: 30px;
+        }
+
+        .warranty-content h3 {
+            color: #c4a484;
+            margin-bottom: 15px;
+        }
+
+        .warranty-details {
+            margin-bottom: 20px;
+        }
+
+        .warranty-details p {
+            margin: 8px 0;
+        }
+
+        .warranty-coverage {
+            margin: 20px 0;
+        }
+
+        .warranty-coverage ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .warranty-coverage li {
+            margin: 5px 0;
+        }
+
+        .warranty-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .signature-box {
+            width: 200px;
+            text-align: center;
+        }
+
+        .signature-line {
+            border-top: 1px solid #000;
+            margin-top: 50px;
+            padding-top: 5px;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #c4a484;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        .print-button:hover {
+            background: #b39476;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+                background: white;
+            }
+            .warranty-container {
+                box-shadow: none;
+                border: none;
+                padding: 20px;
+                margin: 0;
+                width: 100%;
+            }
+            .print-button {
+                display: none;
+            }
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            .warranty-header {
+                page-break-after: avoid;
+            }
+            .warranty-content {
+                page-break-inside: avoid;
+            }
+            .warranty-footer {
+                page-break-before: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">Print Warranty</button>
+    
+    <div class="warranty-container">
+        <div class="warranty-header">
+            <h1>Luxury Auto Gallery</h1>
+            <h2>Part Warranty Certificate</h2>
+            <div class="warranty-number">Warranty Number: W202403150001</div>
+        </div>
+
+        <div class="warranty-content">
+            <div class="warranty-details">
+                <h3>Customer Information</h3>
+                <p><strong>Name:</strong> <span id="customer-name">John Doe</span></p>
+                <p><strong>Email:</strong> <span id="customer-email">john.doe@example.com</span></p>
+                <p><strong>Phone:</strong> <span id="customer-phone">(555) 123-4567</span></p>
+            </div>
+
+            <div class="warranty-details">
+                <h3>Part Information</h3>
+                <p><strong>Part Name:</strong> <span id="part-name">Brake Pad Set</span></p>
+                <p><strong>Part Type:</strong> <span id="part-type">Brake System</span></p>
+                <p><strong>Brand:</strong> <span id="part-brand">Premium Auto Parts</span></p>
+            </div>
+
+            <div class="warranty-coverage">
+                <h3>Warranty Coverage</h3>
+                <p>This warranty covers the following for a period of 3 years from the date of purchase:</p>
+                <ul>
+                    <li>Manufacturing defects in materials and workmanship</li>
+                    <li>Premature wear under normal operating conditions</li>
+                    <li>Performance issues due to manufacturing defects</li>
+                    <li>Replacement of defective parts</li>
+                    <li>Labor costs for warranty repairs</li>
+                </ul>
+            </div>
+
+            <div class="warranty-details">
+                <h3>Warranty Period</h3>
+                <p><strong>Start Date:</strong> <span id="start-date">March 15, 2024</span></p>
+                <p><strong>End Date:</strong> <span id="end-date">March 15, 2027</span></p>
+            </div>
+        </div>
+
+        <div class="warranty-footer">
+            <p>This warranty is non-transferable and valid only for the original purchaser.</p>
+            <p>For warranty claims, please contact our service department with your warranty number.</p>
+            
+            <div class="signature-section">
+                <div class="signature-box">
+                    <div class="signature-line">Customer Signature</div>
+                </div>
+                <div class="signature-box">
+                    <div class="signature-line">Authorized Dealer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Update warranty information from URL parameters
+        window.onload = function() {
+            document.getElementById('customer-name').textContent = getUrlParameter('name') || 'John Doe';
+            document.getElementById('customer-email').textContent = getUrlParameter('email') || 'john.doe@example.com';
+            document.getElementById('customer-phone').textContent = getUrlParameter('phone') || '(555) 123-4567';
+            document.getElementById('part-name').textContent = getUrlParameter('part_name') || 'Brake Pad Set';
+            document.getElementById('part-type').textContent = getUrlParameter('part_type') || 'Brake System';
+            document.getElementById('part-brand').textContent = getUrlParameter('part_brand') || 'Premium Auto Parts';
+            document.getElementById('start-date').textContent = getUrlParameter('start_date') || 'March 15, 2024';
+            document.getElementById('end-date').textContent = getUrlParameter('end_date') || 'March 15, 2027';
+            
+            // Automatically trigger print dialog after a short delay
+            setTimeout(function() {
+                window.print();
+            }, 500);
+        }
+    </script>
+</body>
+</html> 
